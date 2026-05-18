@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Posso entrar na UNESP? · Companheiro do candidato</title>
+<meta name="description" content="Descubra seus direitos pra entrar na UNESP: cotas, isenção e permanência. Faculdade de Ciências e Letras · Câmpus Araraquara." />
+<meta name="theme-color" content="#E11B22" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --red:#E11B22;
+    --ink:#0E0E0E;
+    --cream:#FAF7EF;
+    --yellow:#F5C400;
+    --paper:#F4F1EA;
+    --soft:#6B665C;
+    --font:"Archivo",system-ui,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+
+  header.hero{
+    background:var(--red);color:var(--cream);
+    padding:32px 22px 28px;
+  }
+  .pre{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-bottom:10px}
+  h1{font-weight:900;font-size:30px;line-height:.9;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+  .url{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:var(--ink);padding:6px 10px;border-radius:4px;display:inline-block;margin-top:14px}
+  .intro{font-size:14px;line-height:1.4;margin-top:14px;opacity:.95;max-width:520px}
+
+  main{
+    max-width:680px;margin:0 auto;padding:24px 18px 80px;
+    display:flex;flex-direction:column;gap:20px;
+  }
+  .q{
+    background:#fff;border-radius:14px;padding:18px 18px 14px;
+    box-shadow:0 1px 0 #00000010, 0 2px 8px -4px rgba(0,0,0,.06);
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .q .qs{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase}
+  .q .qt{font-weight:700;font-size:16px;letter-spacing:-.005em;line-height:1.25}
+  .opts{display:flex;flex-wrap:wrap;gap:6px}
+  .opt{
+    background:#fff;border:1.5px solid #0E0E0E22;
+    padding:9px 14px;border-radius:999px;
+    font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;
+    transition:all .15s;
+  }
+  .opt:active{transform:scale(.97)}
+  .opt.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .opt:not(.on):hover{border-color:var(--red);color:var(--red)}
+
+  .result{
+    background:var(--ink);color:var(--cream);
+    padding:24px 22px;border-radius:14px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .result h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin:0}
+  .result .big{font-weight:900;font-size:24px;line-height:1;letter-spacing:-.02em;margin:0}
+  .result ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .result li{display:grid;grid-template-columns:22px 1fr;gap:6px;font-size:14px;line-height:1.35}
+  .result li b{font-family:var(--mono);font-weight:700;color:var(--yellow)}
+  .result .nxt{
+    display:flex;flex-direction:column;gap:8px;margin-top:8px;padding-top:14px;border-top:1px solid #FAF7EF22;
+  }
+  .result .nxt a{
+    color:var(--cream);text-decoration:none;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--red);padding:10px 14px;border-radius:999px;text-align:center;font-weight:700;
+  }
+  .result .nxt a.ghost{background:transparent;border:1px solid #FAF7EF44}
+
+  footer{
+    text-align:center;padding:24px 18px 48px;color:var(--soft);
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  }
+  footer b{color:var(--ink)}
+
+  @media(min-width:520px){
+    h1{font-size:38px}
+    .q .qt{font-size:17px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="pre">Companheiro digital · acessível por QR</div>
+  <h1>POSSO ENTRAR?<br/>SIM, DESCUBRA COMO.</h1>
+  <span class="url">fcl.unesp.br/ingresso</span>
+  <div class="intro">
+    Cinco perguntas rápidas e este assistente mostra a quais direitos
+    você já tem acesso garantido por lei: isenção da taxa, cotas
+    de escola pública, PPI e permanência estudantil.
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <b>UNESP · FCL Araraquara</b> &nbsp;·&nbsp; manual oficial: vunesp.com.br &nbsp;·&nbsp; este app roda no seu celular, offline
+</footer>
+
+<script>
+const QUESTIONS = [
+  { id:"rede", qs:"Q01", qt:"Onde você estudou o Ensino Médio?", opts:[
+    { v:"publica", l:"Escola pública o tempo todo" },
+    { v:"parcial", l:"Maior parte em pública" },
+    { v:"particular", l:"Particular sem bolsa" },
+    { v:"bolsa", l:"Particular com bolsa integral" },
+  ]},
+  { id:"ppi", qs:"Q02", qt:"Você se autodeclara Preto, Pardo ou Indígena?", opts:[
+    { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }
+  ]},
+  { id:"renda", qs:"Q03", qt:"Renda por pessoa na sua casa:", opts:[
+    { v:"ate1",  l:"até ½ salário mín." },
+    { v:"ate15", l:"até 1,5 sal. mín." },
+    { v:"ate2",  l:"até 2 sal. mín." },
+    { v:"acima", l:"acima de 2 sal. mín." },
+  ]},
+  { id:"cad", qs:"Q04", qt:"Está inscrito no CadÚnico (Cadastro Único do Governo Federal)?", opts:[
+    { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }, { v:"naosei", l:"Não sei" }
+  ]},
+  { id:"enem", qs:"Q05", qt:"Tem nota recente do Enem (≥ 400 e sem zeros)?", opts:[
+    { v:"sim", l:"Sim" }, { v:"nao", l:"Não / não fiz" }, { v:"vouFazer", l:"Vou fazer este ano" }
+  ]},
+];
+
+function recs(ans){
+  const r=[];
+  if(ans.cad==="sim") r.push({b:"✓",t:"Isenção total da taxa: você tem direito (CadÚnico)."});
+  else if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.renda==="ate15") r.push({b:"✓",t:"Isenção total da taxa: EM público + renda até 1,5 sal. mín./pessoa."});
+  else if(ans.renda==="ate2"||ans.renda==="ate15"||ans.renda==="ate1") r.push({b:"½",t:"Redução de 50%: renda até 2 sal. mín. ou estudante de cursinho. Peça na janela específica do edital."});
+  if(ans.rede==="publica"||ans.rede==="bolsa") r.push({b:"✓",t:"SRVEBP — pelo menos 50% das vagas do curso são reservadas para você (escola pública)."});
+  if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.ppi==="sim") r.push({b:"✓",t:"Cota PPI — 35% das vagas reservadas são para Pretos, Pardos e Indígenas autodeclarados."});
+  if(ans.enem==="sim") r.push({b:"→",t:"Você pode optar pela porta Unesp-Enem: usa só sua nota do Enem."});
+  if(ans.enem==="nao"||ans.enem==="vouFazer"||ans.enem==="sim") r.push({b:"→",t:"Vestibular tradicional sempre é opção: fase 1 objetiva (90 questões, 5h), fase 2 discursiva (2 dias)."});
+  r.push({b:"★",t:"Permanência estudantil: bolsas, moradia, alimentação e apoio pedagógico. Procure assim que entrar."});
+  return r;
+}
+
+const state = { ans:{} };
+const root = document.getElementById('app');
+
+function render(){
+  const all = QUESTIONS.every(q=>state.ans[q.id]!==undefined);
+  const rs = recs(state.ans);
+  const someAnswered = Object.keys(state.ans).length > 0;
+
+  root.innerHTML = QUESTIONS.map(q=>`
+    <div class="q">
+      <div class="qs">${q.qs}</div>
+      <div class="qt">${q.qt}</div>
+      <div class="opts">
+        ${q.opts.map(o=>`
+          <button class="opt ${state.ans[q.id]===o.v?'on':''}" data-q="${q.id}" data-v="${o.v}">${o.l}</button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('') + (someAnswered ? `
+    <div class="result">
+      <h3>Seus direitos & caminhos</h3>
+      <p class="big">${all
+        ? "Você tem direitos garantidos por lei. Use todos."
+        : "Responda mais para ver tudo a que você tem direito."}</p>
+      <ul>${rs.map(r=>`<li><b>${r.b}</b><span>${r.t}</span></li>`).join('')}</ul>
+      ${all ? `
+        <div class="nxt">
+          <a href="https://www.vunesp.com.br/" target="_blank">Ir para a inscrição (vunesp.com.br)</a>
+          <a class="ghost" href="https://drive.google.com/file/d/19URpexfMvE3yc7m3DUFoHYas_QO7rCQz/view?usp=sharing" target="_blank">Ler o Manual do Candidato</a>
+        </div>
+      ` : ''}
+    </div>
+  ` : '');
+
+  root.querySelectorAll('.opt').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const id=b.dataset.q, v=b.dataset.v;
+      state.ans[id]=v;
+      try { localStorage.setItem('fcl-ingresso-ans', JSON.stringify(state.ans)); } catch(e){}
+      render();
+    });
+  });
+}
+
+try {
+  const saved = JSON.parse(localStorage.getItem('fcl-ingresso-ans') || '{}');
+  state.ans = saved;
+} catch(e){}
+
+render();
+</script>
+</body>
+</html>
