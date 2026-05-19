@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Posso entrar na UNESP? · Companheiro do candidato</title>
-<meta name="description" content="Descubra seus direitos pra entrar na UNESP: cotas, isenção e permanência. Faculdade de Ciências e Letras · Câmpus Araraquara." />
-<meta name="theme-color" content="#E11B22" />
+<title>Posso entrar na UNESP? · FCLAr</title>
+<meta name="description" content="Descubra seus direitos pra entrar na UNESP: cotas, isenção da taxa e auxílios de permanência. Faculdade de Ciências e Letras · Câmpus Araraquara." />
+<meta name="theme-color" content="#0E7FA8" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,10 +13,12 @@
 
 <style>
   :root {
-    --red:#E11B22;
+    --teal:#0E7FA8;
+    --teal-deep:#0A5B7A;
+    --gold:#B87838;
+    --gold-light:#D89848;
     --ink:#0E0E0E;
     --cream:#FAF7EF;
-    --yellow:#F5C400;
     --paper:#F4F1EA;
     --soft:#6B665C;
     --font:"Archivo",system-ui,sans-serif;
@@ -26,17 +28,26 @@
   html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
 
   header.hero{
-    background:var(--red);color:var(--cream);
-    padding:32px 22px 28px;
+    background:var(--teal);color:var(--cream);
+    padding:36px 22px 30px;
+    position:relative;overflow:hidden;
   }
-  .pre{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-bottom:10px}
-  h1{font-weight:900;font-size:30px;line-height:.9;letter-spacing:-.02em;margin:0;text-transform:uppercase}
-  .url{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:var(--ink);padding:6px 10px;border-radius:4px;display:inline-block;margin-top:14px}
-  .intro{font-size:14px;line-height:1.4;margin-top:14px;opacity:.95;max-width:520px}
+  header.hero::after{
+    content:"";position:absolute;right:-30px;top:30px;width:120px;height:120px;border-radius:50%;
+    border:1.5px solid rgba(250,247,239,.25);
+  }
+  header.hero::before{
+    content:"";position:absolute;right:14px;top:-12px;width:38px;height:38px;border-radius:50%;
+    background:var(--gold);
+  }
+  .pre{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .pre::before{content:"";width:18px;height:1px;background:currentColor}
+  h1{font-weight:900;font-size:30px;line-height:.9;letter-spacing:-.02em;margin:0;text-transform:uppercase;position:relative;z-index:1}
+  .intro{font-size:14px;line-height:1.4;margin-top:16px;opacity:.95;max-width:520px;position:relative;z-index:1}
 
   main{
     max-width:680px;margin:0 auto;padding:24px 18px 80px;
-    display:flex;flex-direction:column;gap:20px;
+    display:flex;flex-direction:column;gap:16px;
   }
   .q{
     background:#fff;border-radius:14px;padding:18px 18px 14px;
@@ -45,6 +56,7 @@
   }
   .q .qs{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase}
   .q .qt{font-weight:700;font-size:16px;letter-spacing:-.005em;line-height:1.25}
+  .q .helper{font-size:12px;color:var(--soft);line-height:1.35;margin-top:-2px}
   .opts{display:flex;flex-wrap:wrap;gap:6px}
   .opt{
     background:#fff;border:1.5px solid #0E0E0E22;
@@ -54,31 +66,43 @@
   }
   .opt:active{transform:scale(.97)}
   .opt.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-  .opt:not(.on):hover{border-color:var(--red);color:var(--red)}
+  .opt:not(.on):hover{border-color:var(--teal);color:var(--teal)}
 
   .result{
     background:var(--ink);color:var(--cream);
     padding:24px 22px;border-radius:14px;
     display:flex;flex-direction:column;gap:14px;
   }
-  .result h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin:0}
+  .result h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin:0}
   .result .big{font-weight:900;font-size:24px;line-height:1;letter-spacing:-.02em;margin:0}
   .result ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-  .result li{display:grid;grid-template-columns:22px 1fr;gap:6px;font-size:14px;line-height:1.35}
-  .result li b{font-family:var(--mono);font-weight:700;color:var(--yellow)}
+  .result li{display:grid;grid-template-columns:24px 1fr;gap:6px;font-size:14px;line-height:1.35}
+  .result li b{font-family:var(--mono);font-weight:700;color:var(--gold-light)}
+  .result .group{
+    padding:14px;border:1px solid #FAF7EF22;border-radius:10px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .result .group h4{
+    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--gold-light);margin:0;
+  }
+  .result .group p{
+    font-size:13px;line-height:1.4;margin:0;
+  }
   .result .nxt{
     display:flex;flex-direction:column;gap:8px;margin-top:8px;padding-top:14px;border-top:1px solid #FAF7EF22;
   }
   .result .nxt a{
     color:var(--cream);text-decoration:none;
     font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-    background:var(--red);padding:10px 14px;border-radius:999px;text-align:center;font-weight:700;
+    background:var(--teal);padding:11px 14px;border-radius:999px;text-align:center;font-weight:700;
   }
   .result .nxt a.ghost{background:transparent;border:1px solid #FAF7EF44}
+  .result .nxt a.gold{background:var(--gold)}
 
   footer{
     text-align:center;padding:24px 18px 48px;color:var(--soft);
-    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;line-height:1.6;
   }
   footer b{color:var(--ink)}
 
@@ -91,58 +115,119 @@
 <body>
 
 <header class="hero">
-  <div class="pre">Companheiro digital · acessível por QR</div>
+  <div class="pre">UNESP · FCL ARARAQUARA</div>
   <h1>POSSO ENTRAR?<br/>SIM, DESCUBRA COMO.</h1>
-  <span class="url">fcl.unesp.br/ingresso</span>
   <div class="intro">
-    Cinco perguntas rápidas e este assistente mostra a quais direitos
-    você já tem acesso garantido por lei: isenção da taxa, cotas
-    de escola pública, PPI e permanência estudantil.
+    Algumas perguntas e este assistente mostra a quais direitos você
+    tem acesso: isenção da taxa, cotas de escola pública e PPI,
+    e os auxílios de Permanência Estudantil da FCLAr.
   </div>
 </header>
 
 <main id="app"></main>
 
 <footer>
-  <b>UNESP · FCL Araraquara</b> &nbsp;·&nbsp; manual oficial: vunesp.com.br &nbsp;·&nbsp; este app roda no seu celular, offline
+  <b>UNESP · FCL Araraquara</b><br>
+  Manual oficial: vunesp.com.br &nbsp;·&nbsp; Permanência: fclar.unesp.br
 </footer>
 
 <script>
 const QUESTIONS = [
-  { id:"rede", qs:"Q01", qt:"Onde você estudou o Ensino Médio?", opts:[
+  { id:"rede", qs:"Q01", qt:"Onde você estudou o Ensino Médio (EM)?", opts:[
     { v:"publica", l:"Escola pública o tempo todo" },
     { v:"parcial", l:"Maior parte em pública" },
     { v:"particular", l:"Particular sem bolsa" },
     { v:"bolsa", l:"Particular com bolsa integral" },
   ]},
-  { id:"ppi", qs:"Q02", qt:"Você se autodeclara Preto, Pardo ou Indígena?", opts:[
+  { id:"ppi", qs:"Q02", qt:"Você se autodeclara Preto, Pardo ou Indígena (PPI)?", opts:[
     { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }
   ]},
-  { id:"renda", qs:"Q03", qt:"Renda por pessoa na sua casa:", opts:[
-    { v:"ate1",  l:"até ½ salário mín." },
-    { v:"ate15", l:"até 1,5 sal. mín." },
-    { v:"ate2",  l:"até 2 sal. mín." },
-    { v:"acima", l:"acima de 2 sal. mín." },
-  ]},
+  { id:"renda", qs:"Q03", qt:"Renda bruta por pessoa na sua casa:",
+    helper:"Soma de tudo que entra na família, dividido pelo número de pessoas.",
+    opts:[
+      { v:"ate1",  l:"até ½ salário mín." },
+      { v:"ate15", l:"até 1,5 sal. mín." },
+      { v:"ate2",  l:"até 2 sal. mín." },
+      { v:"acima", l:"acima de 2 sal. mín." },
+    ]},
   { id:"cad", qs:"Q04", qt:"Está inscrito no CadÚnico (Cadastro Único do Governo Federal)?", opts:[
     { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }, { v:"naosei", l:"Não sei" }
   ]},
   { id:"enem", qs:"Q05", qt:"Tem nota recente do Enem (≥ 400 e sem zeros)?", opts:[
     { v:"sim", l:"Sim" }, { v:"nao", l:"Não / não fiz" }, { v:"vouFazer", l:"Vou fazer este ano" }
   ]},
+  { id:"defic", qs:"Q06", qt:"Você tem deficiência, mobilidade reduzida ou doença grave?",
+    helper:"Conforme Decreto 5.296/04. Dá direito ao Auxílio Especial em fluxo contínuo.",
+    opts:[
+      { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }
+    ]},
+  { id:"filho", qs:"Q07", qt:"Você é responsável direto por criança de até 12 anos incompletos?",
+    helper:"Dá direito ao Auxílio Maternagem/Paternagem.",
+    opts:[
+      { v:"sim", l:"Sim" }, { v:"nao", l:"Não" }
+    ]},
 ];
 
 function recs(ans){
   const r=[];
-  if(ans.cad==="sim") r.push({b:"✓",t:"Isenção total da taxa: você tem direito (CadÚnico)."});
-  else if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.renda==="ate15") r.push({b:"✓",t:"Isenção total da taxa: EM público + renda até 1,5 sal. mín./pessoa."});
-  else if(ans.renda==="ate2"||ans.renda==="ate15"||ans.renda==="ate1") r.push({b:"½",t:"Redução de 50%: renda até 2 sal. mín. ou estudante de cursinho. Peça na janela específica do edital."});
+
+  // ISENÇÃO / REDUÇÃO da taxa
+  if(ans.cad==="sim") r.push({b:"✓",t:"Isenção total da taxa de inscrição — você tem direito pelo CadÚnico."});
+  else if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.renda==="ate15") r.push({b:"✓",t:"Isenção total da taxa — EM público + renda até 1,5 sal. mín./pessoa."});
+  else if(ans.renda==="ate2"||ans.renda==="ate15"||ans.renda==="ate1") r.push({b:"½",t:"Redução de 50% — renda até 2 sal. mín. ou estudante de cursinho. Solicite na janela específica do edital."});
+
+  // COTAS
   if(ans.rede==="publica"||ans.rede==="bolsa") r.push({b:"✓",t:"SRVEBP — pelo menos 50% das vagas do curso são reservadas para você (escola pública)."});
-  if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.ppi==="sim") r.push({b:"✓",t:"Cota PPI — 35% das vagas reservadas são para Pretos, Pardos e Indígenas autodeclarados."});
-  if(ans.enem==="sim") r.push({b:"→",t:"Você pode optar pela porta Unesp-Enem: usa só sua nota do Enem."});
-  if(ans.enem==="nao"||ans.enem==="vouFazer"||ans.enem==="sim") r.push({b:"→",t:"Vestibular tradicional sempre é opção: fase 1 objetiva (90 questões, 5h), fase 2 discursiva (2 dias)."});
-  r.push({b:"★",t:"Permanência estudantil: bolsas, moradia, alimentação e apoio pedagógico. Procure assim que entrar."});
+  if((ans.rede==="publica"||ans.rede==="bolsa")&&ans.ppi==="sim") r.push({b:"✓",t:"Cota PPI — 35% das vagas reservadas para Pretos, Pardos e Indígenas autodeclarados."});
+
+  // CAMINHOS DE INGRESSO
+  if(ans.enem==="sim") r.push({b:"→",t:"Você pode optar pela porta Unesp-Enem: usa só sua nota do Enem (≥ 400 e sem zeros)."});
+  if(ans.enem==="nao"||ans.enem==="vouFazer"||ans.enem==="sim") r.push({b:"→",t:"Vestibular tradicional: fase 1 objetiva (90 questões, 5h), fase 2 discursiva (2 dias)."});
+
   return r;
+}
+
+function permanencia(ans){
+  // Permanência Estudantil FCLAr (Edital 01/2026, Res. Unesp 33/2023)
+  // Vulnerabilidade socioeconômica: renda bruta per capita familiar ≤ 1,5 sal. mín.
+  const elegivel = (ans.renda === "ate1" || ans.renda === "ate15");
+  const aux = [];
+
+  if(elegivel){
+    aux.push({
+      titulo:"Auxílio Socioeconômico",
+      texto:"R$ 550 (modalidade 1) ou R$ 440 (modalidade 2) por mês, conforme avaliação da Assistente Social. Apoia sua manutenção no município do curso."
+    });
+    aux.push({
+      titulo:"Moradia Estudantil",
+      texto:"Vaga em casa estudantil da FCLAr. Renovação anual obrigatória no processo seletivo."
+    });
+    aux.push({
+      titulo:"Subsídio Alimentação",
+      texto:"R$ 335/mês, acumulável com qualquer outra modalidade de auxílio."
+    });
+  }
+  if(ans.defic === "sim"){
+    aux.push({
+      titulo:"Auxílio Especial",
+      texto:"R$ 550/mês em fluxo contínuo, para estudantes com deficiência, mobilidade reduzida ou doenças graves (Dec. 5.296/04)."
+    });
+  }
+  if(ans.filho === "sim"){
+    aux.push({
+      titulo:"Auxílio Maternagem/Paternagem",
+      texto:"R$ 550/mês em fluxo contínuo, para responsável direto por criança de até 12 anos incompletos, em vulnerabilidade socioeconômica."
+    });
+  }
+  // Estágio: depende de variáveis que não perguntamos. Mencionamos como direito disponível.
+
+  return {
+    elegivel,
+    aux,
+    nota: elegivel
+      ? "Inscrição via Siscope (ape.unesp.br/siscope/login.php). Avaliação por Assistente Social. Auxílios válidos até 12 meses, vigência mar/2026 a fev/2027."
+      : "Você pode não se enquadrar pela renda, mas Auxílio Especial e Maternagem/Paternagem têm critérios próprios. Procure o Núcleo de Apoio ao Estudante (FCLAr) para conversar."
+  };
 }
 
 const state = { ans:{} };
@@ -150,13 +235,15 @@ const root = document.getElementById('app');
 
 function render(){
   const all = QUESTIONS.every(q=>state.ans[q.id]!==undefined);
-  const rs = recs(state.ans);
   const someAnswered = Object.keys(state.ans).length > 0;
+  const rs = recs(state.ans);
+  const perm = permanencia(state.ans);
 
   root.innerHTML = QUESTIONS.map(q=>`
     <div class="q">
       <div class="qs">${q.qs}</div>
       <div class="qt">${q.qt}</div>
+      ${q.helper ? `<div class="helper">${q.helper}</div>` : ''}
       <div class="opts">
         ${q.opts.map(o=>`
           <button class="opt ${state.ans[q.id]===o.v?'on':''}" data-q="${q.id}" data-v="${o.v}">${o.l}</button>
@@ -165,15 +252,28 @@ function render(){
     </div>
   `).join('') + (someAnswered ? `
     <div class="result">
-      <h3>Seus direitos & caminhos</h3>
+      <h3>Seu caminho na UNESP</h3>
       <p class="big">${all
-        ? "Você tem direitos garantidos por lei. Use todos."
-        : "Responda mais para ver tudo a que você tem direito."}</p>
+        ? "Veja o que se aplica a você."
+        : "Responda mais para ver tudo a que você tem acesso."}</p>
       <ul>${rs.map(r=>`<li><b>${r.b}</b><span>${r.t}</span></li>`).join('')}</ul>
+
+      ${(perm.aux.length > 0 || all) ? `
+        <div class="group">
+          <h4>Permanência Estudantil · FCLAr</h4>
+          ${perm.aux.length > 0
+            ? perm.aux.map(a=>`<p><b style="font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--gold-light)">${a.titulo}</b><br>${a.texto}</p>`).join('')
+            : `<p>Pelo perfil informado, você pode não se enquadrar nos auxílios principais (que exigem renda até 1,5 sal. mín./pessoa). Auxílio Especial e Maternagem/Paternagem têm critérios próprios.</p>`
+          }
+          <p style="opacity:.7;font-size:12px">${perm.nota}</p>
+        </div>
+      ` : ''}
+
       ${all ? `
         <div class="nxt">
-          <a href="https://www.vunesp.com.br/" target="_blank">Ir para a inscrição (vunesp.com.br)</a>
-          <a class="ghost" href="https://drive.google.com/file/d/19URpexfMvE3yc7m3DUFoHYas_QO7rCQz/view?usp=sharing" target="_blank">Ler o Manual do Candidato</a>
+          <a href="https://www.vunesp.com.br/" target="_blank" rel="noopener">Ir para a inscrição (vunesp.com.br)</a>
+          <a class="gold" href="https://drive.google.com/file/d/19URpexfMvE3yc7m3DUFoHYas_QO7rCQz/view?usp=sharing" target="_blank" rel="noopener">Ler o Manual do Candidato</a>
+          <a class="ghost" href="https://www.fclar.unesp.br/" target="_blank" rel="noopener">FCLAr · Núcleo de Apoio ao Estudante</a>
         </div>
       ` : ''}
     </div>
